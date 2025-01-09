@@ -1,0 +1,29 @@
+Unicode was a brave effort to create a single character set that included every reasonable writing system on the planet and some make-believe ones like Klingon, too. Some people are under the misconception that Unicode is simply a 16-bit code where each character takes 16 bits and therefore there are 65,536 possible characters. This is not, actually, correct. It is the single most common myth about Unicode, so if you thought that, don’t feel bad.
+
+In fact, Unicode has a different way of thinking about characters, and you have to understand the Unicode way of thinking of things or nothing will make sense.
+
+Until now, we’ve assumed that a letter maps to some bits which you can store on disk or in memory:
+
+A -> 0100 0001
+
+In Unicode, a letter maps to something called a code point which is still just a theoretical concept. How that code point is represented in memory or on disk is a whole nuther story.
+
+In Unicode, the letter A is a platonic ideal. It’s just floating in heaven:
+
+A
+
+This platonic A is different than B, and different from a, but the same as A and A and A. The idea that A in a Times New Roman font is the same character as the A in a Helvetica font, but different from “a” in lower case, does not seem very controversial, but in some languages just figuring out what a letter is can cause controversy. Is the German letter ß a real letter or just a fancy way of writing ss? If a letter’s shape changes at the end of the word, is that a different letter? Hebrew says yes, Arabic says no. Anyway, the smart people at the Unicode consortium have been figuring this out for the last decade or so, accompanied by a great deal of highly political debate, and you don’t have to worry about it. They’ve figured it all out already.
+
+Every platonic letter in every alphabet is assigned a magic number by the Unicode consortium which is written like this: U+0639.  This magic number is called a code point. The U+ means “Unicode” and the numbers are hexadecimal. U+0639 is the Arabic letter Ain. The English letter A would be U+0041. You can find them all using the charmap utility on Windows 2000/XP or visiting the Unicode web site.
+
+There is no real limit on the number of letters that Unicode can define and in fact they have gone beyond 65,536 so not every unicode letter can really be squeezed into two bytes, but that was a myth anyway.
+
+OK, so say we have a string:
+
+Hello
+
+which, in Unicode, corresponds to these five code points:
+
+U+0048 U+0065 U+006C U+006C U+006F.
+
+Just a bunch of code points. Numbers, really. We haven’t yet said anything about how to store this in memory or represent it in an email message.
