@@ -60,6 +60,7 @@ Thumbs.db
 data/raw/
 data/processed/
 data/interim/
+data/malayalam_corpus/
 models/
 logs/
 io/
